@@ -1,24 +1,12 @@
-# README
+# DeployMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A minimally complex rails application to deploy to AWS
 
-Things you may want to cover:
+# Requirements
 
-* Ruby version
+Ruby 2.6.1
+Rails 6.x
 
-* System dependencies
+# Goals
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create a deployment system for the rails app contained in this repo. It must support multiple web worker hosts, async task worker hosts, cronjobs, and database migrations.
