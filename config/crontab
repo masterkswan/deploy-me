@@ -1,0 +1,18 @@
+TZ=/usr/share/zoneinfo/America/Chicago
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/ubuntu/.rbenv/shims
+
+# Set by ApplicationStart.sh
+APP_ROOT=
+
+# m h dom mon dow   command
+# =========================
+# = buildout production =
+# =========================
+# Despite setting the timezone to Central, the tasks still run on UTC
+
+# Call every minute
+* * * * *      cd $APP_ROOT && /usr/bin/env RAILS_ENV=production BUNDLE_GEMFILE=$APP_ROOT/Gemfile bundle exec rake cron:every_minute >> /u/apps/buildout/shared/log/cron.log
+
+# Call every fifteen minutes
+*/15 * * * *   cd $APP_ROOT && /usr/bin/env RAILS_ENV=production BUNDLE_GEMFILE=$APP_ROOT/Gemfile bundle exec rake cron:every_fifteen_minutes >> /u/apps/buildout/shared/log/cron.log
